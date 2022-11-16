@@ -1,5 +1,1 @@
-import SeriesController from './SeriesController';
-
-export{
-    SeriesController,
-}
+export { default as userController } from "./userController";
