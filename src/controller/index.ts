@@ -1,1 +1,7 @@
-export { default as userController } from "./userController";
+//import HomeController from './HomeController';
+import userController from "./userController";
+
+export{
+    //HomeController,
+    userController
+}
