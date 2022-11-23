@@ -1,7 +1,7 @@
 //import HomeController from './HomeController';
-import userController from "./userController";
+import tripController from "./tripController";
 
 export{
     //HomeController,
-    userController
+    tripController
 }
