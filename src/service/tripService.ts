@@ -14,18 +14,20 @@ const createTrip = async () => {
 };
 
 //* 도시 등록
-const updateCity = async (tripId: number, city: string) => {
+const updateCity = async (tripId: number, city: string, imageUrl: string) => {
   const data = await prisma.trip.update({
     where: {
       id: tripId,
     },
     data: {
       city: city,
+      imageUrl: imageUrl,
     },
   })
 
   return data;
 };
+
 
 const tripService = {
   createTrip,
