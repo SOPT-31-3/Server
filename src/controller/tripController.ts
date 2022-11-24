@@ -1,7 +1,6 @@
 import { Request, Response } from "express";
 import tripService from "../service/tripService";
 
-
 //* 여행 생성
 //* POST /trip
 const createTrip = async (req: Request, res: Response) => {
@@ -31,9 +30,20 @@ const updateCity = async (req: Request, res: Response) => {
   return res.status(200).json({ status: 200, message: "도시 등록 성공", data });
 }
 
+//* 일정 생성
+//* GET /trip/:tripId/plan
+const createDay = async (req: Request, res: Response) => {
+  const { tripId } = req.params;
+
+  const data = await tripService.createDay(+tripId);
+
+  return res.status(200).json({ status: 200, message: "일정 생성 성공", data });
+}
+
 const tripController = {
   createTrip,
   updateCity,
+  createDay,
 };
 
 export default tripController;

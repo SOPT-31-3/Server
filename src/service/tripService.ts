@@ -28,10 +28,29 @@ const updateCity = async (tripId: number, city: string, imageUrl: string) => {
   return data;
 };
 
+//* 일정 생성
+const createDay = async (tripId: number) => {
+  const data = await prisma.day.createMany({
+    data: [
+      { tripId: tripId, date: '2023-02-04' }, 
+      { tripId: tripId, date: '2023-02-05' }, 
+      { tripId: tripId, date: '2023-02-06' }
+    ]
+  });
+
+  const returnData = await prisma.day.findMany({
+    where: {
+      tripId: tripId,
+    },
+  });
+
+  return returnData;
+}
 
 const tripService = {
   createTrip,
   updateCity,
+  createDay,
 }
 
 export default tripService;
