@@ -1,3 +1,1 @@
-import SeriesService from "./SeriesService";
-
-export {SeriesService};
+export { default as tripService } from "./tripService";

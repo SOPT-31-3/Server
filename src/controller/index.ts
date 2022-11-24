@@ -1,5 +1,7 @@
-import SeriesController from './SeriesController';
+//import HomeController from './HomeController';
+import tripController from "./tripController";
 
 export{
-    SeriesController,
+    //HomeController,
+    tripController
 }

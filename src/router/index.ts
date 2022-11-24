@@ -1,8 +1,8 @@
-import {Router} from "express";
-import SeriesRouter from "./SeriesRouter";
+import { Router } from "express";
+import tripRouter from "./tripRouter";
 
 const router: Router = Router();
 
-router.use('/series', SeriesRouter);
+router.use("/trip", tripRouter);
 
 export default router;
