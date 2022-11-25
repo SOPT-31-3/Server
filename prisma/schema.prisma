@@ -8,26 +8,16 @@ datasource db {
 }
 
 model Trip {
-  id        Int       @id @default(autoincrement())
+  id        Int     @id @default(autoincrement())
   city      String?
-  imageUrl     String?
-  startDate String  
-  endDate   String 
-  days      Day[]
-}
-
-model Day {
-  id       Int        @id @unique @default(autoincrement())
-  date     String
-  trip     Trip       @relation(fields: [tripId], references: [id])
-  tripId   Int
-  Schedule Schedule[]
+  startDate String
+  endDate   String
+  imageUrl  String?
 }
 
 model Schedule {
-  id      Int    @id @unique @default(autoincrement())
-  day     Day    @relation(fields: [dayId], references: [id])
-  dayId   Int
-  time    String
-  content String
+  id      Int     @id @unique @default(autoincrement())
+  dayId   Int?
+  time    String?
+  content String?
 }

@@ -1,6 +1,8 @@
+import { PrismaClient } from "@prisma/client";
 import { Request, Response } from "express";
 import tripService from "../service/tripService";
 
+const prisma = new PrismaClient();
 
 //* 여행 생성
 //* POST /trip
@@ -31,9 +33,26 @@ const updateCity = async (req: Request, res: Response) => {
   return res.status(200).json({ status: 200, message: "도시 등록 성공", data });
 }
 
+//* 전체 일정 저장
+//* POST /trip/plan/allPlan
+const saveAllPlan = async (req: Request, res: Response) => {
+  const { planList } = req.body;
+
+  const data = await prisma.schedule.createMany({
+    data: planList
+  });
+  //const data = await tripService.saveAllPlan();
+  
+  if ( !data ) {
+    return res.status(404).json({ status: 404, message: "전체 일정 저장 실패" });
+  } 
+  return res.status(200).json({ status: 200, message: "전체 일정 저장 성공", data });
+}
+
 const tripController = {
   createTrip,
   updateCity,
+  saveAllPlan
 };
 
 export default tripController;

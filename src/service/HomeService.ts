@@ -5,7 +5,7 @@ const prisma = new PrismaClient();
 const getHomeById = async (tripId: number) => {
   const data = await prisma.trip.findUnique({
     where: {
-      tripId: tripId,
+      id: tripId,
     },
   });
 
