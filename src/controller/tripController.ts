@@ -41,7 +41,6 @@ const saveAllPlan = async (req: Request, res: Response) => {
   const data = await prisma.schedule.createMany({
     data: planList
   });
-  //const data = await tripService.saveAllPlan();
   
   if ( !data ) {
     return res.status(404).json({ status: 404, message: "전체 일정 저장 실패" });
