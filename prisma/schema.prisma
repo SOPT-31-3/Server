@@ -7,9 +7,17 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
-  id       Int     @id(map: "user_pk") @unique(map: "user_id_uindex") @default(autoincrement())
-  userName String
-  age      Int?
-  email    String? @db.VarChar(400)
+model Trip {
+  id        Int     @id @default(autoincrement())
+  city      String?
+  startDate String
+  endDate   String
+  imageUrl  String?
+}
+
+model Schedule {
+  id      Int     @id @unique @default(autoincrement())
+  dayId   Int?
+  time    String?
+  content String?
 }
