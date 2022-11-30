@@ -36,9 +36,10 @@ const updateCity = async (req: Request, res: Response) => {
 //* 전체 일정 저장
 //* POST /trip/plan/allPlan
 const saveAllPlan = async (req: Request, res: Response) => {
-
+  const { planList } = req.body.data
   const data = await prisma.schedule.createMany({
-    data: req.body.data
+    //data: req.body.data
+    data: planList
   });
   
   if ( !data ) {
